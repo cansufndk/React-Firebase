@@ -12,7 +12,7 @@ const Home = () => {
     dispatch(productActions());
   }, [dispatch]);
 
-  return <div>{state && state.map((card, i) => <ProductsCard key={i} card={card} />)}</div>;
+  return <div className="flex flex-wrap justify-center items-center">{state && state.map((card, i) => <ProductsCard key={i} card={card} />)}</div>;
 };
 
 export default Home;
