@@ -17,7 +17,7 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth();
 
-export const createUser = async (email, password) => {
+export const createUserFirebase = async (email, password) => {
   //*Kullanıcı pluşturmak için
   try {
     const { user } = await createUserWithEmailAndPassword(auth, email, password);
@@ -27,7 +27,7 @@ export const createUser = async (email, password) => {
   }
 };
 
-export const loginUser = async (email, password) => {
+export const loginUserFirebase = async (email, password) => {
   //*Kullanıcı giriş yapması için
   try {
     const { user } = await signInWithEmailAndPassword(auth, email, password);
@@ -37,7 +37,7 @@ export const loginUser = async (email, password) => {
   }
 };
 
-/*export const userStatus = async (user) => {
+export const userStatus = async () => {
   //*Kullanıcı giriş çıkış dinleyici
   const { user } = onAuthStateChanged(auth, user);
   if (user) {
@@ -46,6 +46,6 @@ export const loginUser = async (email, password) => {
   } else {
     console.log("user çıkış yaptı");
   }
-};*/
+};
 
 export default app;

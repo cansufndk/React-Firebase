@@ -14,11 +14,6 @@ function App() {
   /*const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const register = async () => {
-    //*Kullanıcı oluşturmak için
-    const user = await createUser(email, password);
-    console.log("register", user);
-  };
 
   const login = async () => {
     //*Kullanıcı girişi için
@@ -34,9 +29,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="details/:id" element={<Detail />} />
-            <Route path="*" element={<Profile />} />
-            <Route path="*" element={<Login />} />
-            <Route path="*" element={<Register />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
           </Routes>
           <Footer />
         </BrowserRouter>
@@ -48,12 +43,11 @@ function App() {
 export default App;
 
 /*
+
+
 <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="e mail" />
       <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" />
 
       <button onClick={login}>login</button>
-      <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="e mail" />
-      <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" />
-
-      <button onClick={register}>Register</button>
+      
        */
