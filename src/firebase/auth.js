@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -37,15 +37,26 @@ export const loginUserFirebase = async (email, password) => {
   }
 };
 
-export const userStatus = async () => {
-  //*Kullanıcı giriş çıkış dinleyici
-  const { user } = onAuthStateChanged(auth, user);
+export const getUserInfo = () => {
+  //*Kullanıcı Bilgileri
+  const user = auth.currentUser;
+  return user;
+};
+
+onAuthStateChanged(auth, (user) => {
+  //*Kullanıcı dibleyici
   if (user) {
     const uid = user.uid;
-    console.log("user uid", uid);
+    return uid;
+    //console.log(uid);
   } else {
-    console.log("user çıkış yaptı");
+    console.log("user bulunamadı");
   }
+});
+
+export const logout = async () => {
+  await signOut(auth);
+  return true;
 };
 
 export default app;

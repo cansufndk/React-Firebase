@@ -2,9 +2,9 @@ import React from "react";
 import { CiMail, CiFacebook, CiYoutube, CiInstagram } from "react-icons/ci";
 const Footer = () => {
   return (
-    <div className="flex justify-between rounded items-center bg-gray-900 text-white p-5 w-full flex-wrap">
+    <div className="fixed bottom-0 left-0 flex justify-around rounded items-center bg-gray-900 text-white p-2 w-full flex-wrap ">
       <div className="justify-center ">
-        <div className=" cursor-pointer  mb-5 text-lg">Hakkımızda</div>
+        <div className=" cursor-pointer  mb-4 text-lg">Hakkımızda</div>
         <div>Who we are</div>
         <div>Career</div>
         <div className="flex space-x-3">

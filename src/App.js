@@ -1,5 +1,3 @@
-import { useState } from "react";
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./screens/Home";
 import Detail from "./screens/Detail";
@@ -9,17 +7,13 @@ import Register from "./screens/Register";
 import ContainerPage from "./containers/ContainerPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { useSelector } from "react-redux";
+import "./App.css";
+import Card from "./components/Card";
 
 function App() {
-  /*const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-
-  const login = async () => {
-    //*Kullanıcı girişi için
-    const user = await loginUser(email, password);
-    console.log("login", user);
-  };*/
+  //const { user } = useSelector((state) => state.user);
+  const drawer = useSelector((state) => state.drawer);
 
   return (
     <div className="App">
@@ -33,6 +27,7 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
           </Routes>
+          {drawer && <Card />}
           <Footer />
         </BrowserRouter>
       </ContainerPage>
@@ -41,13 +36,3 @@ function App() {
 }
 
 export default App;
-
-/*
-
-
-<input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="e mail" />
-      <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" />
-
-      <button onClick={login}>login</button>
-      
-       */
